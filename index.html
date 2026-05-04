@@ -1,0 +1,1275 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UKM BAQI UPI - Belajar Al-Qur'an Intensif</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <div class="header__logo">
+            <div class="header__logo-icon">
+              <img
+                src="img/logo.png"
+                alt="BAQI"
+                class="header__logo-img"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'block';
+                "
+              />
+              <span
+                class="material-symbols-outlined header__logo-fallback"
+                style="display: none; color: #fff"
+                >menu_book</span
+              >
+            </div>
+            <div>
+              <h2 class="header__logo-name">UKM BAQI</h2>
+              <p class="header__logo-sub">UPI Bandung</p>
+            </div>
+          </div>
+          <nav class="header__nav">
+            <a href="#home" data-i18n="nav.home">Home</a>
+            <a href="#about" data-i18n="nav.about">About</a>
+            <a href="#vision" data-i18n="nav.vision">Visi & Misi</a>
+            <a href="#structure" data-i18n="nav.structure">Struktur</a>
+            <a href="#programs" data-i18n="nav.programs">Program</a>
+            <a href="#services" data-i18n="nav.services">Layanan</a>
+          </nav>
+          <div class="header__actions">
+            <!-- Language Toggle — inside header -->
+            <div class="lang-toggle" id="langToggle">
+              <button
+                class="lang-btn active"
+                data-lang="id"
+                onclick="setLang('id')"
+              >
+                ID
+              </button>
+              <span class="lang-divider">|</span>
+              <button class="lang-btn" data-lang="en" onclick="setLang('en')">
+                EN
+              </button>
+            </div>
+            <button
+              class="header__cta"
+              onclick="openWhatsApp()"
+              data-i18n="nav.contact"
+            >
+              Hubungi Kami
+            </button>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile nav -->
+      <div class="mobile-nav" id="mobileNav">
+        <a href="#home" onclick="toggleMenu()" data-i18n="nav.home">Home</a>
+        <a href="#about" onclick="toggleMenu()" data-i18n="nav.about">About</a>
+        <a href="#vision" onclick="toggleMenu()" data-i18n="nav.vision"
+          >Visi & Misi</a
+        >
+        <a href="#structure" onclick="toggleMenu()" data-i18n="nav.structure"
+          >Struktur</a
+        >
+        <a href="#programs" onclick="toggleMenu()" data-i18n="nav.programs"
+          >Program</a
+        >
+        <a href="#services" onclick="toggleMenu()" data-i18n="nav.services"
+          >Layanan</a
+        >
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <!-- Geometric Islamic background pattern -->
+        <div class="hero__bg-pattern" aria-hidden="true">
+          <svg
+            class="geo-pattern"
+            viewBox="0 0 800 800"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <pattern
+                id="islamic-star"
+                x="0"
+                y="0"
+                width="120"
+                height="120"
+                patternUnits="userSpaceOnUse"
+              >
+                <polygon
+                  points="60,5 72,42 110,42 80,65 91,102 60,80 29,102 40,65 10,42 48,42"
+                  fill="none"
+                  stroke="rgba(81,193,84,0.06)"
+                  stroke-width="1"
+                />
+                <rect
+                  x="30"
+                  y="30"
+                  width="60"
+                  height="60"
+                  fill="none"
+                  stroke="rgba(81,193,84,0.04)"
+                  stroke-width="1"
+                  transform="rotate(45 60 60)"
+                />
+              </pattern>
+            </defs>
+            <rect width="800" height="800" fill="url(#islamic-star)" />
+          </svg>
+        </div>
+
+        <!-- Bismillah Arabic -->
+        <div class="bismillah-banner">
+          <span class="arabic-text">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+        </div>
+
+        <div class="container">
+          <div class="hero__grid">
+            <div class="hero__content">
+              <div class="badge">
+                <span class="badge__dot"></span
+                ><span data-i18n="hero.badge">Website Resmi</span>
+              </div>
+              <h1 class="hero__title">
+                <span class="title-accent">BAQI</span>
+                <span class="title-main">UPI</span>
+              </h1>
+              <h3 class="hero__subtitle" data-i18n="hero.subtitle">
+                Belajar Al-Qur'an Intensif
+              </h3>
+              <p class="hero__desc" data-i18n="hero.desc">
+                Unit Kegiatan Mahasiswa yang berfokus pada pembinaan dakwah
+                Al-Qur'an di lingkungan Universitas Pendidikan Indonesia.
+                Menanamkan nilai spiritual melalui pendidikan Al-Qur'an yang
+                modern dan inklusif.
+              </p>
+
+              <div class="hero__actions">
+                <button class="hero__btn-primary" onclick="openWhatsApp()">
+                  <span class="material-symbols-outlined">chat</span>
+                  <span data-i18n="hero.contact">Hubungi Kami</span>
+                </button>
+                <button class="hero__btn-register" disabled id="registerBtn">
+                  <span class="material-symbols-outlined">how_to_reg</span>
+                  <span data-i18n="hero.register">Daftar Anggota</span>
+                  <span class="badge-soon" data-i18n="hero.soon">Segera</span>
+                </button>
+              </div>
+
+              <div class="hero__quran-verse">
+                <p class="verse-arabic">
+                  يَا قَوْمِ إِنَّمَا هَٰذِهِ الْحَيَاةُ الدُّنْيَا مَتَاعٌ
+                  وَإِنَّ الْآخِرَةَ هِيَ دَارُ الْقَرَارِ
+                </p>
+                <p class="verse-translation" data-i18n="hero.verse">
+                  "Wahai kaumku! Sesungguhnya kehidupan dunia ini hanyalah
+                  kesenangan (sementara), dan sesungguhnya akhirat itulah negeri
+                  yang kekal." — Q.S. Ghafir ayat 39
+                </p>
+              </div>
+            </div>
+
+            <div class="hero__image-wrap">
+              <!-- Logo resmi BAQI UPI -->
+              <div class="hero__logo-display">
+                <div class="logo-ring logo-ring--1"></div>
+                <div class="logo-ring logo-ring--2"></div>
+                <div class="logo-ring logo-ring--3"></div>
+                <div class="logo-center">
+                  <!--
+                    Ganti src di bawah ini dengan path logo kamu,
+                    contoh: src="images/logo-baqi.png"
+                    Logo sudah bisa langsung dipakai, background hitam akan
+                    otomatis hilang karena kita pakai mix-blend-mode multiply
+                  -->
+                  <img
+                    src="img/logo.png"
+                    alt="Logo UKM BAQI UPI"
+                    class="baqi-logo-img"
+                    onerror="
+                      this.style.display = 'none';
+                      this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <!-- Fallback jika gambar belum ada -->
+                  <div class="logo-fallback" style="display: none">
+                    <span class="logo-baqi">BAQI</span>
+                    <span class="logo-upi">UPI</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero__badge glass-card">
+                <div class="hero__badge-icon">
+                  <span class="material-symbols-outlined"
+                    >volunteer_activism</span
+                  >
+                </div>
+                <div>
+                  <p class="hero__badge-label" data-i18n="hero.growth">
+                    Spiritual Growth
+                  </p>
+                  <p class="hero__badge-sub" data-i18n="hero.mentorship">
+                    Guided Mentorship
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="about" id="about">
+        <!-- decorative -->
+        <div class="section-ornament" aria-hidden="true">
+          <svg viewBox="0 0 100 20" width="200" height="40">
+            <path
+              d="M0,10 Q25,0 50,10 Q75,20 100,10"
+              stroke="rgba(81,193,84,0.3)"
+              stroke-width="1"
+              fill="none"
+            />
+            <path
+              d="M0,10 Q25,20 50,10 Q75,0 100,10"
+              stroke="rgba(81,193,84,0.2)"
+              stroke-width="1"
+              fill="none"
+            />
+            <circle cx="50" cy="10" r="3" fill="rgba(255,234,78,0.6)" />
+          </svg>
+        </div>
+        <div class="container">
+          <div class="about__grid">
+            <div class="about__img-wrap">
+              <img src="img/kepengurusan.jpeg" alt="Students learning" />
+              <div class="about__img-badge">
+                <span class="arabic-small">الْقُرْآن</span>
+              </div>
+            </div>
+            <div class="about__content">
+              <div>
+                <p class="section-label" data-i18n="about.label">
+                  Sejarah Kami
+                </p>
+                <h3 class="section-title" data-i18n="about.title">
+                  Berdiri 1987, Mewarisi Semangat Dakwah
+                </h3>
+              </div>
+              <p class="about__text" data-i18n="about.desc">
+                UKM BAQI UPI telah menjadi pusat pembelajaran Al-Qur'an dan
+                pengembangan karakter islami bagi mahasiswa UPI selama lebih
+                dari tiga dekade. Berawal dari semangat dakwah di lingkungan
+                kampus, kami terus bertransformasi menjadi wadah yang
+                profesional dan relevan dengan perkembangan zaman.
+              </p>
+              <div class="about__stats">
+                <div class="stat-card">
+                  <div class="stat-card__icon">
+                    <span class="material-symbols-outlined">history_edu</span>
+                  </div>
+                  <h4 class="stat-card__number">36+</h4>
+                  <p class="stat-card__label" data-i18n="about.years">
+                    Tahun Berkhidmat
+                  </p>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-card__icon">
+                    <span class="material-symbols-outlined">diversity_3</span>
+                  </div>
+                  <h4 class="stat-card__number">100+</h4>
+                  <p class="stat-card__label" data-i18n="about.members">
+                    Anggota Aktif
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISION -->
+      <section class="vision" id="vision">
+        <div class="container">
+          <div class="vision__quote">
+            <div class="vision__star-ornament" aria-hidden="true">✦</div>
+            <p class="section-label" data-i18n="vision.label">Visi Kami</p>
+            <p class="vision__quote-text" data-i18n="vision.text">
+              "Menjadi lembaga dakwah kampus yang unggul dalam pembinaan
+              Al-Qur'an dan membentuk karakter rabbani bagi sivitas akademika
+              UPI."
+            </p>
+            <div class="vision__star-ornament" aria-hidden="true">✦</div>
+          </div>
+          <div class="mission-label-wrap">
+            <p
+              class="section-label"
+              style="text-align: center"
+              data-i18n="vision.missionLabel"
+            >
+              Misi Kami
+            </p>
+          </div>
+          <div class="vision__cards">
+            <div class="mission-card">
+              <div class="mission-card__icon">
+                <span class="material-symbols-outlined">school</span>
+              </div>
+              <h4 class="mission-card__title" data-i18n="mission.edu.title">
+                Pendidikan
+              </h4>
+              <p class="mission-card__desc" data-i18n="mission.edu.desc">
+                Menyelenggarakan program pembelajaran Al-Qur'an yang sistematis
+                dan berkualitas bagi seluruh mahasiswa.
+              </p>
+            </div>
+            <div class="mission-card">
+              <div class="mission-card__icon">
+                <span class="material-symbols-outlined">groups</span>
+              </div>
+              <h4 class="mission-card__title" data-i18n="mission.dev.title">
+                Pembinaan
+              </h4>
+              <p class="mission-card__desc" data-i18n="mission.dev.desc">
+                Membentuk kader dakwah yang memiliki pemahaman Al-Qur'an yang
+                mendalam dan berakhlakul karimah.
+              </p>
+            </div>
+            <div class="mission-card">
+              <div class="mission-card__icon">
+                <span class="material-symbols-outlined">public</span>
+              </div>
+              <h4 class="mission-card__title" data-i18n="mission.syiar.title">
+                Syiar Islam
+              </h4>
+              <p class="mission-card__desc" data-i18n="mission.syiar.desc">
+                Mensyiarkan nilai-nilai Al-Qur'an secara luas di lingkungan
+                kampus dan masyarakat sekitar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STRUCTURE -->
+      <section class="structure" id="structure">
+        <div class="container">
+          <div class="structure__header">
+            <p class="section-label" data-i18n="structure.label">
+              Struktur Organisasi
+            </p>
+            <h3 class="section-title" data-i18n="structure.title">
+              Hierarki Kepengurusan
+            </h3>
+            <p class="structure__sub">Periode 2025 – 2026</p>
+          </div>
+
+          <!-- ── LEVEL 1: MPO ── -->
+          <div class="org-level">
+            <div class="org-card org-card--mpo">
+              <div class="org-card__icon-wrap">
+                <span class="material-symbols-outlined">gavel</span>
+              </div>
+              <div class="org-card__info">
+                <span class="org-card__role-tag"
+                  >MPO (Majelis Pertimbangan Organisasi)</span
+                >
+                <h4 class="org-card__role">M. Ahga Cendikia Antahta</h4>
+                <p class="org-card__desc" data-i18n="org.mpo">
+                  Bimbingan strategis dan pengawasan
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="org-connector org-connector--down"></div>
+
+          <!-- ── LEVEL 2: Ketua Umum ── -->
+          <div class="org-level">
+            <div class="org-card org-card--chief">
+              <div class="org-card__photo-wrap">
+                <img
+                  src="img/pengurus/Lintang.jpg"
+                  alt="Lintang Luthfi Pastika"
+                  class="org-card__photo"
+                />
+                <div class="org-card__photo-ring"></div>
+              </div>
+              <div class="org-card__info">
+                <span class="org-card__role-tag org-card__role-tag--green"
+                  >Ketua Umum</span
+                >
+                <h4 class="org-card__name">Lintang Luthfi Pastika</h4>
+                <p class="org-card__desc" data-i18n="org.chairman.desc">
+                  Menetapkan kebijakan, koordinasi, dan akuntabilitas organisasi
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="org-connector org-connector--down"></div>
+
+          <!-- ── LEVEL 3: Sekre + Bendahara ── -->
+          <div class="org-level org-level--row">
+            <!-- Sekretaris Umum (2 orang) -->
+            <div class="org-branch">
+              <div class="org-branch__label" data-i18n="org.secretary">
+                Sekretaris Umum
+              </div>
+              <div class="org-branch__cards">
+                <div class="org-card org-card--sm">
+                  <div class="org-card__photo-wrap org-card__photo-wrap--sm">
+                    <img
+                      src="img/pengurus/Salwa.jpg"
+                      alt="Salwa Zakiah A. Suryana"
+                      class="org-card__photo"
+                    />
+                  </div>
+                  <div class="org-card__info">
+                    <h4 class="org-card__name org-card__name--sm">
+                      Salwa Zakiah A. Suryana
+                    </h4>
+                    <p class="org-card__subrole">Sekretaris I</p>
+                  </div>
+                </div>
+                <div class="org-card org-card--sm">
+                  <div class="org-card__photo-wrap org-card__photo-wrap--sm">
+                    <img
+                      src="img/pengurus/Sahroni.jpg"
+                      alt="Sahroni"
+                      class="org-card__photo"
+                    />
+                  </div>
+                  <div class="org-card__info">
+                    <h4 class="org-card__name org-card__name--sm">Sahroni</h4>
+                    <p class="org-card__subrole">Sekretaris II</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="org-connector org-connector--down org-connector--sm"
+              ></div>
+              <div class="org-team-box">
+                <span class="material-symbols-outlined org-team-box__icon"
+                  >folder_shared</span
+                >
+                <span data-i18n="org.secretary.team">Tim Kesekretariatan</span>
+              </div>
+            </div>
+
+            <div class="org-level__divider"></div>
+
+            <!-- Bendahara Umum (2 orang) -->
+            <div class="org-branch">
+              <div class="org-branch__label" data-i18n="org.treasurer">
+                Bendahara Umum
+              </div>
+              <div class="org-branch__cards">
+                <div class="org-card org-card--sm">
+                  <div class="org-card__photo-wrap org-card__photo-wrap--sm">
+                    <img
+                      src="img/pengurus/Riswaty.jpg"
+                      alt="Riswaty Nurazizah"
+                      class="org-card__photo"
+                    />
+                  </div>
+                  <div class="org-card__info">
+                    <h4 class="org-card__name org-card__name--sm">
+                      Riswaty Nurazizah
+                    </h4>
+                    <p class="org-card__subrole">Bendahara I</p>
+                  </div>
+                </div>
+                <div class="org-card org-card--sm">
+                  <div class="org-card__photo-wrap org-card__photo-wrap--sm">
+                    <img
+                      src="img/pengurus/Lulu.jpg"
+                      alt="Siti Lulu Awaliah"
+                      class="org-card__photo"
+                    />
+                  </div>
+                  <div class="org-card__info">
+                    <h4 class="org-card__name org-card__name--sm">
+                      Siti Lulu Awaliah
+                    </h4>
+                    <p class="org-card__subrole">Bendahara II</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="org-connector org-connector--down org-connector--sm"
+              ></div>
+              <div class="org-team-box">
+                <span class="material-symbols-outlined org-team-box__icon"
+                  >account_balance_wallet</span
+                >
+                <span data-i18n="org.treasurer.team"
+                  >Tim Ekonomi dan Keuangan</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="org-connector org-connector--down"></div>
+
+          <!-- ── LEVEL 4: 3 Departemen ── -->
+          <div class="org-level org-level--row org-level--depts">
+            <div
+              class="org-dept-card org-dept-card--clickable"
+              onclick="toggleProker(this)"
+            >
+              <div class="org-dept-card__header org-dept-card__header--dpq">
+                <span class="org-dept-card__abbr">DPQ</span>
+                <span
+                  class="org-dept-card__toggle-icon material-symbols-outlined"
+                  >expand_more</span
+                >
+              </div>
+              <div class="org-dept-card__body">
+                <p class="org-dept-card__fullname" data-i18n="org.dpq">
+                  Departemen Pengembangan Al-Qur'an
+                </p>
+                <div class="org-dept-card__photo-wrap">
+                  <img
+                    src="img/pengurus/Bardan.jpg"
+                    alt="Muhammad Bardan Abdul Baari"
+                    class="org-card__photo"
+                  />
+                  <div class="org-dept-card__name-badge">
+                    M. Bardan Abdul Baari
+                  </div>
+                </div>
+                <div class="org-dept-card__hint">
+                  <span class="material-symbols-outlined">touch_app</span> Tap
+                  untuk lihat proker
+                </div>
+              </div>
+              <div class="org-dept-card__proker">
+                <p class="org-dept-card__proker-title">Program Kerja DPQ</p>
+                <ul class="org-dept-card__proker-list">
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">01</span
+                        ><span class="proker-item__name"
+                          >Post-Test & Pre-Test</span
+                        >
+                      </div>
+                      <p class="proker-item__desc">
+                        Tes baca Al-Qur'an untuk mengetahui tingkat bacaan
+                        mahasiswa, kemudian di-test kembali untuk melihat
+                        perkembangan.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">02</span
+                        ><span class="proker-item__name">Talaqqi</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Bimbingan baca Al-Qur'an intensif dari dasar hingga
+                        mahir secara langsung bersama mentor berpengalaman.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">03</span
+                        ><span class="proker-item__name">Tasmi'</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Program setoran hafalan Al-Qur'an yang disimak bersama
+                        untuk menjaga kualitas hafalan anggota.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">04</span
+                        ><span class="proker-item__name">Tahsin Camp</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Kegiatan intensif pembelajaran tajwid dan makhraj huruf
+                        secara mendalam dalam format camp.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">05</span
+                        ><span class="proker-item__name">MABIT</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Malam Bina Iman dan Taqwa — sarana mempererat ukhuwah
+                        dan memperdalam spiritualitas anggota.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- DPPO -->
+            <div
+              class="org-dept-card org-dept-card--clickable"
+              onclick="toggleProker(this)"
+            >
+              <div class="org-dept-card__header org-dept-card__header--dppo">
+                <span class="org-dept-card__abbr">DPPO</span>
+                <span
+                  class="org-dept-card__toggle-icon material-symbols-outlined"
+                  >expand_more</span
+                >
+              </div>
+              <div class="org-dept-card__body">
+                <p class="org-dept-card__fullname" data-i18n="org.dppo">
+                  Departemen Pengembangan Organisasi
+                </p>
+                <div class="org-dept-card__photo-wrap">
+                  <img
+                    src="img/pengurus/Omar.jpg"
+                    alt="M. Omar Athilla Zimran"
+                    class="org-card__photo"
+                  />
+                  <div class="org-dept-card__name-badge">
+                    M. Omar Athilla Zimran
+                  </div>
+                </div>
+                <div class="org-dept-card__hint">
+                  <span class="material-symbols-outlined">touch_app</span> Tap
+                  untuk lihat proker
+                </div>
+              </div>
+              <div class="org-dept-card__proker">
+                <p class="org-dept-card__proker-title">Program Kerja DPPO</p>
+                <ul class="org-dept-card__proker-list">
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">01</span
+                        ><span class="proker-item__name"
+                          >Kumpul All Pengurus (KAP)</span
+                        >
+                      </div>
+                      <p class="proker-item__desc">
+                        Kegiatan upgrading dan silaturahmi seluruh pengurus
+                        aktif BAQI UPI, bisa berupa buka bersama, santunan, atau
+                        kumpul biasa.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">02</span
+                        ><span class="proker-item__name">Pembinaan GenQ</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Program pembinaan kerohanian dan penyucian jiwa untuk
+                        mendekatkan pengurus & GenQ kepada Allah di tengah
+                        padatnya aktivitas.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">03</span
+                        ><span class="proker-item__name">Real BAQI</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Program inti mentoring tahsin (TPD & TD) dan halaqah
+                        tahfidz (TT & TM) untuk memfasilitasi baca dan hafal
+                        Al-Qur'an.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">04</span
+                        ><span class="proker-item__name">Muhasabah</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Evaluasi mandiri pengurus setiap 3 bulan melalui Google
+                        Form untuk memonitoring kinerja dan ketercapaian visi
+                        misi.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">05</span
+                        ><span class="proker-item__name">Studi Banding</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Berbagi pengalaman dengan organisasi kampus lain yang
+                        punya visi serupa dalam pemberantasan buta huruf
+                        Al-Qur'an.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">06</span
+                        ><span class="proker-item__name">AhSan CaGenQ</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Penjaringan mahasiswa baru/aktif UPI untuk diperkenalkan
+                        dengan BAQI dan dipersiapkan menjadi GenQ.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">07</span
+                        ><span class="proker-item__name">PMQ</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Rangkaian kaderisasi (GO-PMQ → Mentoring Tahsin → PMQ)
+                        untuk mempersiapkan CaGenQ menjadi GenQ yang siap
+                        berdinamika.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- DEPIKOM -->
+            <div
+              class="org-dept-card org-dept-card--clickable"
+              onclick="toggleProker(this)"
+            >
+              <div class="org-dept-card__header org-dept-card__header--depikom">
+                <span class="org-dept-card__abbr">DEPIKOM</span>
+                <span
+                  class="org-dept-card__toggle-icon material-symbols-outlined"
+                  >expand_more</span
+                >
+              </div>
+              <div class="org-dept-card__body">
+                <p class="org-dept-card__fullname" data-i18n="org.depikom">
+                  Departemen Informasi &amp; Komunikasi
+                </p>
+                <div class="org-dept-card__photo-wrap">
+                  <img
+                    src="img/pengurus/Fathi.jpg"
+                    alt="Muhammad Fathi Dhiaulhaq"
+                    class="org-card__photo"
+                  />
+                  <div class="org-dept-card__name-badge">
+                    M. Fathi Dhiaulhaq
+                  </div>
+                </div>
+                <div class="org-dept-card__hint">
+                  <span class="material-symbols-outlined">touch_app</span> Tap
+                  untuk lihat proker
+                </div>
+              </div>
+              <div class="org-dept-card__proker">
+                <p class="org-dept-card__proker-title">Program Kerja DEPIKOM</p>
+                <ul class="org-dept-card__proker-list">
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">01</span
+                        ><span class="proker-item__name"
+                          >Mimin Alif & Mimin Zahra</span
+                        >
+                      </div>
+                      <p class="proker-item__desc">
+                        Konten pengingat dzikir pagi & petang serta surat
+                        Al-Kahfi secara rutin lewat media sosial, setiap hari
+                        pagi dan sore.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">02</span
+                        ><span class="proker-item__name">Media Center</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Pusat informasi dan dakwah BAQI secara online
+                        (Instagram, TikTok, YouTube) maupun offline, mencakup
+                        publikasi kegiatan.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">03</span
+                        ><span class="proker-item__name">GenQ's Family</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Program kepedulian antar anggota — dukungan saat musibah
+                        dan apresiasi berupa hadiah bagi anggota yang diwisuda.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">04</span
+                        ><span class="proker-item__name">UKM Expo</span>
+                      </div>
+                      <p class="proker-item__desc">
+                        Memperkenalkan BAQI UPI saat Mokaku melalui video
+                        profil, video penyambutan mahasiswa baru, dan poster
+                        BAQI.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">05</span
+                        ><span class="proker-item__name"
+                          >MadingQu → ReminderQu & BuletinQu</span
+                        >
+                      </div>
+                      <p class="proker-item__desc">
+                        Konten dakwah digital berupa reminder islami, doa, dan
+                        motivasi dari ayat Al-Qur'an/hadits — setiap Sabtu dan
+                        Ahad.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROGRAMS -->
+      <section class="programs" id="programs">
+        <div class="container">
+          <div class="programs__header">
+            <div>
+              <p class="section-label" data-i18n="programs.label">
+                Program Unggulan
+              </p>
+              <h3 class="section-title" data-i18n="programs.title">
+                Tumbuh Bersama dalam Iman
+              </h3>
+            </div>
+          </div>
+          <div class="programs__grid">
+            <div class="program-card">
+              <div class="program-card__img-wrap">
+                <img src="img/posttest.jpeg" alt="Post-Test dan Pre-Test" />
+              </div>
+              <div class="program-card__body">
+                <div class="program-card__num">01</div>
+                <h4 class="program-card__title">Post-Test dan Pre-Test</h4>
+                <p class="program-card__desc" data-i18n="prog.posttest">
+                  Kegiatan Test baca Al-Qur'an untuk mengetahui tingkat bacaan
+                  Al-Qur'an, lalu mahasiswa akan di test kembali.
+                </p>
+              </div>
+            </div>
+            <div class="program-card">
+              <div class="program-card__img-wrap">
+                <img src="img/gopmq.jpg" alt="Go PMQ" />
+              </div>
+              <div class="program-card__body">
+                <div class="program-card__num">02</div>
+                <h4 class="program-card__title">Go PMQ</h4>
+                <p class="program-card__desc" data-i18n="prog.gopmq">
+                  Rangkaian Kaderisasi untuk mempersiapkan CaGenQ menjadi GenQ
+                  yang siap berdinamika di kepengurusan atau seminimalnya untuk
+                  diri mereka sendiri.
+                </p>
+              </div>
+            </div>
+            <div class="program-card">
+              <div class="program-card__img-wrap">
+                <img src="img/stuband.jpeg" alt="Studi Banding" />
+              </div>
+              <div class="program-card__body">
+                <div class="program-card__num">03</div>
+                <h4 class="program-card__title">Studi Banding</h4>
+                <p class="program-card__desc" data-i18n="prog.stuband">
+                  Program untuk berdiskusi, saling berbagi pengalaman dan
+                  insight terkait pengelolaan organisasi dengan organisasi
+                  kampus lain yang memiliki visi dan misi serupa.
+                </p>
+              </div>
+            </div>
+            <div class="program-card">
+              <div class="program-card__img-wrap">
+                <img src="img/mediacentre.jpeg" alt="Media centre" />
+              </div>
+              <div class="program-card__body">
+                <div class="program-card__num">04</div>
+                <h4 class="program-card__title">Media Centre</h4>
+                <p class="program-card__desc" data-i18n="prog.mediacentre">
+                  Media informasi, komunikasi dan sarana dakwah seputar kegiatan
+                  BAQI.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="services" id="services">
+        <div class="container">
+          <div class="services__header">
+            <p class="section-label" data-i18n="services.label">
+              Layanan & Fasilitas
+            </p>
+            <h3 class="section-title" data-i18n="services.title">
+              Fasilitas yang Ada
+            </h3>
+          </div>
+          <div class="services__grid">
+            <div class="service-card service-card--reverse">
+              <img
+                class="service-card__img"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuApkiNWnka2JC4bOXyw_BMoaSBzD3ytjJjnL9QJgFLJSqI2Jmsmn4I2PCzYyaLHG65nSylxOp8Rolj7ewO-eOp3gzDmVZiVYbgcLP1QVBYVbu3CWlqoZBG6TbpBB6T7jLx5cJkvD6f0lLX9IkVADd3S5Q3HAMUZv6SLkj2HpfHe7aGxFcK44tYNHQoUKPQwXZ0Smf7C-C_hqpF8_ScUc3Fk_gBk9BLXS3e0PJcX7ynF8s_g3pTfbRjao7iHtTQ0RJtic0JAp_6e__k"
+                alt="Equipment storage"
+              />
+              <div class="service-card__body">
+                <div>
+                  <h4
+                    class="service-card__title"
+                    data-i18n="service.borrow.title"
+                  >
+                    Peminjaman Inventaris
+                  </h4>
+                  <p class="service-card__desc" data-i18n="service.borrow.desc">
+                    Layanan peminjaman alat multimedia, sound system, dan
+                    perlengkapan event untuk kegiatan dakwah fakultas atau
+                    jurusan.
+                  </p>
+                </div>
+                <button
+                 class="service-card__btn" onclick="openInventarisForm()">
+                  <span data-i18n="service.borrow.btn">Ajukan Peminjaman</span>
+                  <span class="material-symbols-outlined">open_in_new</span>
+                </butto>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="gallery" id="gallery">
+        <div class="container">
+          <div class="gallery__header">
+            <p class="section-label" data-i18n="gallery.label">Galeri</p>
+            <h3 class="section-title" data-i18n="gallery.title">
+              Momen Kebersamaan
+            </h3>
+          </div>
+          <div class="gallery__grid">
+            <div class="gallery-item gallery-item--square">
+              <img
+                src="img/gallery/gallery_1.jpeg"
+                alt="Students group study"
+              />
+            </div>
+            <div class="gallery-item gallery-item--tall">
+              <img
+                src="img/gallery/gallery_2.jpeg"
+                alt="Group discussion mosque"
+              />
+            </div>
+            <div class="gallery-item gallery-item--square">
+              <img src="img/gallery/gallery_3.jpeg" alt="Seminar hall" />
+            </div>
+            <div class="gallery-item gallery-item--square">
+              <img src="img/gallery/gallery_4.jpeg" alt="Student certificate" />
+            </div>
+            <div class="gallery-item gallery-item--square">
+              <img src="img/gallery/gallery_5.jpeg" alt="Outdoor event" />
+            </div>
+            <div class="gallery-item gallery-item--square">
+              <img src="img/gallery/gallery_6.jpeg" alt="Audience mosque" />
+            </div>
+            <div class="gallery-item gallery-item--square">
+              <img src="img/gallery/gallery_7.jpeg" alt="Public speaker" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA REGISTER BANNER -->
+      <section class="register-cta">
+        <div class="container">
+          <div class="register-cta__card">
+            <div class="register-cta__bg-pattern" aria-hidden="true">
+              <svg
+                viewBox="0 0 400 200"
+                width="100%"
+                height="100%"
+                preserveAspectRatio="xMidYMid slice"
+              >
+                <defs>
+                  <pattern
+                    id="stars"
+                    x="0"
+                    y="0"
+                    width="80"
+                    height="80"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <polygon
+                      points="40,5 44,28 68,28 48,43 56,66 40,52 24,66 32,43 12,28 36,28"
+                      fill="none"
+                      stroke="rgba(255,255,255,0.08)"
+                      stroke-width="1"
+                    />
+                  </pattern>
+                </defs>
+                <rect width="400" height="200" fill="url(#stars)" />
+              </svg>
+            </div>
+            <div class="register-cta__content">
+              <span
+                class="arabic-text"
+                style="
+                  font-size: 1.5rem;
+                  color: rgba(255, 234, 78, 0.8);
+                  display: block;
+                  margin-bottom: 0.5rem;
+                "
+                >وَتَعَاوَنُوا عَلَى الْبِرِّ</span
+              >
+              <h3 class="register-cta__title" data-i18n="cta.title">
+                Bergabunglah Bersama Kami
+              </h3>
+              <p class="register-cta__desc" data-i18n="cta.desc">
+                Jadilah bagian dari keluarga BAQI UPI. Pendaftaran anggota baru
+                akan segera dibuka.
+              </p>
+              <button class="register-cta__btn" disabled id="registerCta">
+                <span class="material-symbols-outlined">how_to_reg</span>
+                <span data-i18n="cta.btn">Daftar Anggota</span>
+                <span class="badge-soon" data-i18n="cta.soon"
+                  >Segera Hadir</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="contact__card">
+            <div class="contact__grid">
+              <div class="contact__info">
+                <p class="section-label" data-i18n="contact.label">Kontak</p>
+                <h3 class="contact__info-title" data-i18n="contact.title">
+                  Hubungi Kami
+                </h3>
+                <div class="contact__rows">
+                  <div class="contact__row">
+                    <div class="contact__row-icon">
+                      <span class="material-symbols-outlined">location_on</span>
+                    </div>
+                    <div>
+                      <h5 class="contact__row-label" data-i18n="contact.hq">
+                        Sekretariat
+                      </h5>
+                      <p class="contact__row-value">
+                        Gedung Gegeut-Winda (PKM) UPI, Jl. Dr. Setiabudi No.229,
+                        Isola, Kec. Sukasari, Kota Bandung, Jawa Barat 40154
+                      </p>
+                    </div>
+                  </div>
+                  <div class="contact__row">
+                    <div class="contact__row-icon">
+                      <span class="material-symbols-outlined">mail</span>
+                    </div>
+                    <div>
+                      <h5 class="contact__row-label" data-i18n="contact.email">
+                        Email
+                      </h5>
+                      <p class="contact__row-value">ukmbaqiupi@gmail.com</p>
+                    </div>
+                  </div>
+                  <div class="contact__row">
+                    <div class="contact__row-icon">
+                      <span class="material-symbols-outlined">phone</span>
+                    </div>
+                    <div>
+                      <h5 class="contact__row-label" data-i18n="contact.phone">
+                        WhatsApp
+                      </h5>
+                      <p class="contact__row-value">+62 877-7791-8666</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contact__socials">
+                  <a
+                    href="https://www.instagram.com/baqiupi"
+                    class="social-btn social-btn--instagram"
+                    aria-label="Instagram"
+                    target="_blank"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="17"
+                      height="17"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@baqiupi"
+                    class="social-btn social-btn--youtube"
+                    aria-label="YouTube"
+                    target="_blank"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="19"
+                      height="19"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                      />
+                    </svg>
+                  </a>
+                  <button
+                    class="social-btn social-btn--whatsapp"
+                    onclick="openWhatsApp()"
+                    aria-label="WhatsApp"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="17"
+                      height="17"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="contact__map">
+                <img src="img/upi.jpeg" alt="UPI Campus map" />
+                <div class="contact__map-overlay">
+                  <button
+                    class="contact__map-btn"
+                    onclick="
+                      window.open(
+                        'https://maps.app.goo.gl/wseVFXRLAKgxg9ru5',
+                        '_blank',
+                      )
+                    "
+                  >
+                    <span data-i18n="contact.maps">Buka di Maps</span>
+                    <span class="material-symbols-outlined">near_me</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <p class="arabic-text footer__arabic">جَزَاكُمُ اللّٰهُ خَيْرًا</p>
+        </div>
+        <div class="footer__inner">
+          <div class="footer__logo">
+            <div class="footer__logo-icon">
+              <img src="img/logo.png" alt="BAQI" class="footer__logo-img" />
+            </div>
+            <h2 class="footer__logo-name">UKM BAQI UPI</h2>
+          </div>
+          <p class="footer__copy">
+            © 2026 UKM BAQI UPI.
+            <span data-i18n="footer.rights">Hak Cipta Dilindungi.</span>
+            <em data-i18n="footer.passion"
+              >Dibuat dengan Semangat Spiritual.</em
+            >
+          </p>
+          <div class="footer__socials">
+            <a
+              href="https://www.instagram.com/baqiupi"
+              aria-label="Instagram"
+              target="_blank"
+              class="footer__social-link footer__social-link--ig"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@baqiupi"
+              aria-label="YouTube"
+              target="_blank"
+              class="footer__social-link footer__social-link--yt"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
