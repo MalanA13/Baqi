@@ -22,7 +22,7 @@ const translations = {
     "hero.contact":     "Hubungi Kami",
     "hero.register":    "Daftar Anggota",
     "hero.soon":        "Segera",
-    "hero.verse":       '"Wahai kaumku! Sesungguhnya kehidupan dunia ini hanyalah kesenangan (sementara), dan sesungguhnya akhirat itulah negeri yang kekal." — Q.S. Ghafir: 39',
+    "hero.verse":       '"Sesungguhnya Kamilah yang menurunkan Al-Qur’an dan pasti Kami (pula) yang memeliharanya." — Q.S. Al-Hijr: 9',
     "hero.growth":      "Spiritual Growth",
     "hero.mentorship":  "Guided Mentorship",
 
@@ -117,7 +117,7 @@ const translations = {
     "hero.contact":     "Contact Us",
     "hero.register":    "Register",
     "hero.soon":        "Soon",
-    "hero.verse":       '"O my people! The life of this world is only a (temporary) enjoyment, and surely the Hereafter is the place to settle forever." — Q.S. Ghafir: 39',
+    "hero.verse":       '"Indeed, it is We who sent down the message [i.e., the Qur’ān], and indeed, We will be its guardian." — Q.S. Al-Hijr: 9',
     "hero.growth":      "Spiritual Growth",
     "hero.mentorship":  "Guided Mentorship",
 
