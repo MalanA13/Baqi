@@ -2168,3 +2168,10 @@ a:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    transition: none; /* Hilangkan transisi */
+    animation: none;  /* Hilangkan animasi */
+  }
+}
