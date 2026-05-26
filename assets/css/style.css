@@ -12,6 +12,20 @@
   padding: 0;
 }
 
+.org-dept-card {
+  flex: 1;
+  background: var(--white);
+  border: 1.5px solid var(--border-soft);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 100%;
+  will-change: transform, box-shadow;
+  contain: layout style paint;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -28,6 +42,30 @@ body {
   overflow-x: hidden;
 }
 
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-120%);
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.75rem 1rem;
+  z-index: 60;
+  border-radius: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--accent);
+}
+
+.hidden {
+  display: none !important;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -36,10 +74,21 @@ img {
   display: block;
   max-width: 100%;
 }
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
 button {
   cursor: pointer;
   border: none;
-  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* ── 2. CSS VARIABLES ─────────────────────────── */
@@ -104,9 +153,11 @@ button {
 
 /* ── 5. REUSABLE COMPONENTS ───────────────────── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .badge {
@@ -125,11 +176,22 @@ button {
 }
 
 .badge__dot {
+  .org-dept-card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px) translateZ(0);
+  }
+
+  .org-dept-card__toggle-icon {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-left: auto;
+  }
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
   background: var(--primary);
-  animation: pulse 2s infinite;
+  animation: pulse 4s ease-in-out infinite;
 }
 
 @keyframes pulse {
@@ -148,7 +210,6 @@ button {
   font-size: 0.6rem;
   font-weight: 700;
   background: rgba(255, 255, 255, 0.25);
-  padding: 0.15rem 0.5rem;
   border-radius: var(--r-full);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -408,6 +469,69 @@ button {
   transform: scale(1.02);
 }
 
+.service-card__details {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 1.5rem;
+}
+
+.service-card__toggle {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.service-card__toggle::-webkit-details-marker,
+.service-card__toggle::marker {
+  display: none;
+}
+
+.service-card__contact-panel {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.service-card__contact-note {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.service-card__contact-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.service-card__contact-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1rem;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border-soft);
+  background: var(--bg-cream);
+  color: var(--text-dark);
+  font-weight: 700;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.service-card__contact-pill:hover,
+.service-card__contact-pill:focus-visible {
+  background: rgba(62, 168, 66, 0.1);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .service-card__contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Gallery */
 .gallery-item {
   border-radius: var(--r-md);
@@ -614,9 +738,9 @@ button {
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(244, 246, 244, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(244, 246, 244, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(62, 168, 66, 0.15);
 }
 
@@ -709,7 +833,7 @@ button {
   background: var(--primary);
   color: var(--white);
   border-radius: var(--r-full);
-  box-shadow: 0 4px 14px rgba(62, 168, 66, 0.25);
+  box-shadow: 0 3px 10px rgba(62, 168, 66, 0.16);
   transition:
     opacity 0.2s,
     transform 0.2s;
@@ -1404,7 +1528,7 @@ button {
   inset: -3px;
   border-radius: 50%;
   border: 2px solid var(--accent);
-  animation: pulse-ring 3s ease-in-out infinite;
+  animation: pulse-ring 4s ease-in-out infinite;
 }
 
 @keyframes pulse-ring {
@@ -1556,16 +1680,21 @@ button {
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition:
-    box-shadow 0.2s,
-    transform 0.2s;
+    box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   width: 100%;
+  will-change: transform, box-shadow;
+  contain: layout style paint;
 }
 
 .org-dept-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px) translateZ(0);
 }
 
+.org-dept-card--clickable:focus-visible {
+  box-shadow: 0 0 0 3px rgba(62, 168, 66, 0.2);
+}
 .org-dept-card__header {
   padding: 0.875rem 1.25rem;
   display: flex;
@@ -1640,8 +1769,10 @@ button {
 .org-dept-card__toggle-icon {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.7);
-  transition: transform 0.3s;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   margin-left: auto;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .org-dept-card--clickable .org-dept-card__header {
@@ -1670,19 +1801,30 @@ button {
 }
 
 /* Proker panel (hidden by default) */
+/* Proker panel (hidden by default) */
 .org-dept-card__proker {
   max-height: 0;
   overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
   transition:
-    max-height 0.4s ease,
-    padding 0.3s;
+    max-height 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.24s ease;
   background: var(--bg-light);
   border-top: none;
+  will-change: max-height, opacity;
+  contain: layout style paint;
 }
 
 .org-dept-card--open .org-dept-card__proker {
-  max-height: 60rem;
+  opacity: 1;
+  max-height: 999px;
+  pointer-events: auto;
   border-top: 1px solid var(--border-soft);
+}
+
+.org-dept-card--open .org-dept-card__proker .org-dept-card__proker-title,
+.org-dept-card--open .org-dept-card__proker .org-dept-card__proker-list {
   padding: 1rem 1.25rem;
 }
 
@@ -1693,6 +1835,8 @@ button {
   letter-spacing: 0.12em;
   color: var(--primary);
   margin-bottom: 0.625rem;
+  will-change: opacity;
+  contain: style;
 }
 
 .org-dept-card__proker-list {
@@ -1836,7 +1980,7 @@ button {
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(36, 94, 39, 0.3);
+  box-shadow: 0 12px 30px rgba(36, 94, 39, 0.22);
 }
 
 .register-cta__bg-pattern {
@@ -1996,7 +2140,7 @@ button {
 }
 
 .contact__map-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
@@ -2005,14 +2149,15 @@ button {
   font-weight: 700;
   font-size: 0.9rem;
   border-radius: var(--r-full);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   transition:
     transform 0.2s,
     box-shadow 0.2s;
 }
-.contact__map-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+.contact__map-btn:hover,
+.contact__map-btn:focus-visible {
+  transform: scale(1.02);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
 @media (min-width: 1024px) {
@@ -2172,6 +2317,6 @@ a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .fade-up {
     transition: none; /* Hilangkan transisi */
-    animation: none;  /* Hilangkan animasi */
+    animation: none; /* Hilangkan animasi */
   }
 }

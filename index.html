@@ -4,9 +4,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UKM BAQI UPI - Belajar Al-Qur'an Intensif</title>
-    <!-- Favicon lengkap -->
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <meta
+      name="description"
+      content="UKM BAQI UPI menyediakan pembelajaran Al-Qur'an intensif bagi mahasiswa dengan pendampingan spiritual dan organisasi yang berkarakter."
+    />
+    <meta
+      property="og:title"
+      content="UKM BAQI UPI - Belajar Al-Qur'an Intensif"
+    />
+    <meta
+      property="og:description"
+      content="Organisasi mahasiswa UPI yang membina dakwah Al-Qur'an melalui program pendidikan, pembinaan, dan syiar sosial."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/img/logo.png" />
+    <meta name="theme-color" content="#3ea842" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="assets/css/style.css" as="style" />
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" />
     <link
       href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -15,26 +32,26 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="header">
       <div class="container">
         <div class="header__inner">
           <div class="header__logo">
             <div class="header__logo-icon">
               <img
-                src="img/logo.png"
+                src="assets/img/logo.png"
                 alt="BAQI"
-                class="header__logo-img"
-                onerror="
-                  this.style.display = 'none';
-                  this.nextElementSibling.style.display = 'block';
-                "
+                class="header__logo-img js-fallback-img"
+                data-fallback-target=".header__logo-fallback"
+                loading="eager"
+                decoding="async"
               />
               <span
-                class="material-symbols-outlined header__logo-fallback"
-                style="display: none; color: #fff"
+                class="material-symbols-outlined header__logo-fallback hidden"
+                aria-hidden="true"
                 >menu_book</span
               >
             </div>
@@ -43,7 +60,7 @@
               <p class="header__logo-sub">UPI Bandung</p>
             </div>
           </div>
-          <nav class="header__nav">
+          <nav class="header__nav" aria-label="Primary navigation">
             <a href="#home" data-i18n="nav.home">Home</a>
             <a href="#about" data-i18n="nav.about">About</a>
             <a href="#vision" data-i18n="nav.vision">Visi & Misi</a>
@@ -55,50 +72,68 @@
             <!-- Language Toggle — inside header -->
             <div class="lang-toggle" id="langToggle">
               <button
+                type="button"
                 class="lang-btn active"
+                data-action="change-lang"
                 data-lang="id"
-                onclick="setLang('id')"
+                aria-pressed="true"
               >
                 ID
               </button>
-              <span class="lang-divider">|</span>
-              <button class="lang-btn" data-lang="en" onclick="setLang('en')">
+              <span class="lang-divider" aria-hidden="true">|</span>
+              <button
+                type="button"
+                class="lang-btn"
+                data-action="change-lang"
+                data-lang="en"
+                aria-pressed="false"
+              >
                 EN
               </button>
             </div>
             <button
+              type="button"
               class="header__cta"
-              onclick="openWhatsApp()"
+              data-action="open-whatsapp"
               data-i18n="nav.contact"
             >
               Hubungi Kami
             </button>
-            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+            <button
+              type="button"
+              class="hamburger"
+              id="hamburger"
+              aria-expanded="false"
+              aria-controls="mobileNav"
+              data-action="toggle-menu"
+            >
               <span></span><span></span><span></span>
             </button>
           </div>
         </div>
       </div>
       <!-- Mobile nav -->
-      <div class="mobile-nav" id="mobileNav">
-        <a href="#home" onclick="toggleMenu()" data-i18n="nav.home">Home</a>
-        <a href="#about" onclick="toggleMenu()" data-i18n="nav.about">About</a>
-        <a href="#vision" onclick="toggleMenu()" data-i18n="nav.vision"
+      <div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="#home" data-action="close-menu" data-i18n="nav.home">Home</a>
+        <a href="#about" data-action="close-menu" data-i18n="nav.about"
+          >About</a
+        >
+        <a href="#vision" data-action="close-menu" data-i18n="nav.vision"
           >Visi & Misi</a
         >
-        <a href="#structure" onclick="toggleMenu()" data-i18n="nav.structure"
+        <a href="#structure" data-action="close-menu" data-i18n="nav.structure"
           >Struktur</a
         >
-        <a href="#programs" onclick="toggleMenu()" data-i18n="nav.programs"
+        <a href="#programs" data-action="close-menu" data-i18n="nav.programs"
           >Program</a
         >
-        <a href="#services" onclick="toggleMenu()" data-i18n="nav.services"
+        <a href="#services" data-action="close-menu" data-i18n="nav.services"
           >Layanan</a
         >
       </div>
     </header>
 
-    <main class="main">
+    <main class="main" id="main-content" role="main">
       <!-- HERO -->
       <section class="hero" id="home">
         <!-- Geometric Islamic background pattern -->
@@ -166,11 +201,20 @@
               </p>
 
               <div class="hero__actions">
-                <button class="hero__btn-primary" onclick="openWhatsApp()">
+                <button
+                  type="button"
+                  class="hero__btn-primary"
+                  data-action="open-whatsapp"
+                >
                   <span class="material-symbols-outlined">chat</span>
                   <span data-i18n="hero.contact">Hubungi Kami</span>
                 </button>
-                <button class="hero__btn-register" disabled id="registerBtn">
+                <button
+                  type="button"
+                  class="hero__btn-register"
+                  disabled
+                  id="registerBtn"
+                >
                   <span class="material-symbols-outlined">how_to_reg</span>
                   <span data-i18n="hero.register">Daftar Anggota</span>
                   <span class="badge-soon" data-i18n="hero.soon">Segera</span>
@@ -179,10 +223,12 @@
 
               <div class="hero__quran-verse">
                 <p class="verse-arabic">
-                  اِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَاِنَّا لَهٗ لَحٰفِظُوْنَ ۝٩
+                  اِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَاِنَّا لَهٗ لَحٰفِظُوْنَ
+                  ۝٩
                 </p>
                 <p class="verse-translation" data-i18n="hero.verse">
-                  "Sesungguhnya Kamilah yang menurunkan Al-Qur’an dan pasti Kami (pula) yang memeliharanya." — Q.S. Al-Hijr ayat 9
+                  "Sesungguhnya Kamilah yang menurunkan Al-Qur’an dan pasti Kami
+                  (pula) yang memeliharanya." — Q.S. Al-Hijr ayat 9
                 </p>
               </div>
             </div>
@@ -201,16 +247,15 @@
                     otomatis hilang karena kita pakai mix-blend-mode multiply
                   -->
                   <img
-                    src="img/logo.png"
+                    src="assets/img/logo.png"
                     alt="Logo UKM BAQI UPI"
-                    class="baqi-logo-img"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'flex';
-                    "
+                    class="baqi-logo-img js-fallback-img"
+                    data-fallback-target=".logo-fallback"
+                    loading="eager"
+                    decoding="async"
                   />
                   <!-- Fallback jika gambar belum ada -->
-                  <div class="logo-fallback" style="display: none">
+                  <div class="logo-fallback hidden" aria-hidden="true">
                     <span class="logo-baqi">BAQI</span>
                     <span class="logo-upi">UPI</span>
                   </div>
@@ -260,7 +305,12 @@
         <div class="container">
           <div class="about__grid">
             <div class="about__img-wrap">
-              <img src="img/kepengurusan.jpeg" alt="Students learning" />
+              <img
+                src="assets/img/kepengurusan.jpeg"
+                alt="Students learning"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="about__img-badge">
                 <span class="arabic-small">الْقُرْآن</span>
               </div>
@@ -270,9 +320,9 @@
                 <p class="section-label" data-i18n="about.label">
                   Sejarah Kami
                 </p>
-                <h3 class="section-title" data-i18n="about.title">
+                <h2 class="section-title" data-i18n="about.title">
                   Berdiri 1987, Mewarisi Semangat Dakwah
-                </h3>
+                </h2>
               </div>
               <p class="about__text" data-i18n="about.desc">
                 UKM BAQI UPI telah menjadi pusat pembelajaran Al-Qur'an dan
@@ -376,9 +426,9 @@
             <p class="section-label" data-i18n="structure.label">
               Struktur Organisasi
             </p>
-            <h3 class="section-title" data-i18n="structure.title">
+            <h2 class="section-title" data-i18n="structure.title">
               Hierarki Kepengurusan
-            </h3>
+            </h2>
             <p class="structure__sub">Periode 2025 – 2026</p>
           </div>
 
@@ -387,9 +437,11 @@
             <div class="org-card org-card--mpo">
               <div class="org-card__photo-wrap">
                 <img
-                  src="img/pengurus/ahga.jpeg"
+                  src="assets/img/pengurus/ahga.jpeg"
                   alt="M. Ahga Cendikia Antahta"
                   class="org-card__photo"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div class="org-card__photo-ring"></div>
               </div>
@@ -412,9 +464,11 @@
             <div class="org-card org-card--chief">
               <div class="org-card__photo-wrap">
                 <img
-                  src="img/pengurus/Lintang.jpg"
+                  src="assets/img/pengurus/Lintang.jpg"
                   alt="Lintang Luthfi Pastika"
                   class="org-card__photo"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div class="org-card__photo-ring"></div>
               </div>
@@ -443,9 +497,11 @@
                 <div class="org-card org-card--sm">
                   <div class="org-card__photo-wrap org-card__photo-wrap--sm">
                     <img
-                      src="img/pengurus/Salwa.jpg"
+                      src="assets/img/pengurus/Salwa.jpg"
                       alt="Salwa Zakiah A. Suryana"
                       class="org-card__photo"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div class="org-card__info">
@@ -458,9 +514,11 @@
                 <div class="org-card org-card--sm">
                   <div class="org-card__photo-wrap org-card__photo-wrap--sm">
                     <img
-                      src="img/pengurus/Sahroni.jpg"
+                      src="assets/img/pengurus/Sahroni.jpg"
                       alt="Sahroni"
                       class="org-card__photo"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div class="org-card__info">
@@ -491,9 +549,11 @@
                 <div class="org-card org-card--sm">
                   <div class="org-card__photo-wrap org-card__photo-wrap--sm">
                     <img
-                      src="img/pengurus/Riswaty.jpg"
+                      src="assets/img/pengurus/Riswaty.jpg"
                       alt="Riswaty Nurazizah"
                       class="org-card__photo"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div class="org-card__info">
@@ -506,9 +566,11 @@
                 <div class="org-card org-card--sm">
                   <div class="org-card__photo-wrap org-card__photo-wrap--sm">
                     <img
-                      src="img/pengurus/Lulu.jpg"
+                      src="assets/img/pengurus/Lulu.jpg"
                       alt="Siti Lulu Awaliah"
                       class="org-card__photo"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div class="org-card__info">
@@ -539,7 +601,11 @@
           <div class="org-level org-level--row org-level--depts">
             <div
               class="org-dept-card org-dept-card--clickable"
-              onclick="toggleProker(this)"
+              data-action="toggle-proker"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-controls="proker-dpq"
             >
               <div class="org-dept-card__header org-dept-card__header--dpq">
                 <span class="org-dept-card__abbr">DPQ</span>
@@ -554,9 +620,11 @@
                 </p>
                 <div class="org-dept-card__photo-wrap">
                   <img
-                    src="img/pengurus/Bardan.jpg"
+                    src="assets/img/pengurus/Bardan.jpg"
                     alt="Muhammad Bardan Abdul Baari"
                     class="org-card__photo"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div class="org-dept-card__name-badge">
                     M. Bardan Abdul Baari
@@ -567,7 +635,7 @@
                   untuk lihat proker
                 </div>
               </div>
-              <div class="org-dept-card__proker">
+              <div class="org-dept-card__proker" id="proker-dpq">
                 <p class="org-dept-card__proker-title">Program Kerja DPQ</p>
                 <ul class="org-dept-card__proker-list">
                   <li>
@@ -575,13 +643,12 @@
                       <div class="proker-item__top">
                         <span class="proker-num">01</span
                         ><span class="proker-item__name"
-                          >Post-Test & Pre-Test</span
+                          >Pretest Al-Qur’an</span
                         >
                       </div>
                       <p class="proker-item__desc">
-                        Tes baca Al-Qur'an untuk mengetahui tingkat bacaan
-                        mahasiswa, kemudian di-test kembali untuk melihat
-                        perkembangan.
+                        Tes awal kemampuan membaca Al-Qur’an mahasiswa untuk
+                        menentukan pembinaan yang sesuai.
                       </p>
                     </div>
                   </li>
@@ -589,11 +656,14 @@
                     <div class="proker-item">
                       <div class="proker-item__top">
                         <span class="proker-num">02</span
-                        ><span class="proker-item__name">Talaqqi</span>
+                        ><span class="proker-item__name"
+                          >Bimbingan Baca Al-Qur’an (BBQ)</span
+                        >
                       </div>
                       <p class="proker-item__desc">
-                        Bimbingan baca Al-Qur'an intensif dari dasar hingga
-                        mahir secara langsung bersama mentor berpengalaman.
+                        Program pembelajaran membaca Al-Qur’an secara intensif
+                        dan terarah bersama pengajar berpengalaman agar
+                        mahasiswa mampu membaca Al-Qur’an dengan baik dan benar.
                       </p>
                     </div>
                   </li>
@@ -601,11 +671,14 @@
                     <div class="proker-item">
                       <div class="proker-item__top">
                         <span class="proker-num">03</span
-                        ><span class="proker-item__name">Tasmi'</span>
+                        ><span class="proker-item__name"
+                          >Bimbingan Tahfidz Al-Qur’an (BTQ)</span
+                        >
                       </div>
                       <p class="proker-item__desc">
-                        Program setoran hafalan Al-Qur'an yang disimak bersama
-                        untuk menjaga kualitas hafalan anggota.
+                        Program pembinaan hafalan Al-Qur’an untuk membantu
+                        mahasiswa meningkatkan hafalan serta memperbaiki
+                        pelafalan ayat Al-Qur’an..
                       </p>
                     </div>
                   </li>
@@ -613,11 +686,14 @@
                     <div class="proker-item">
                       <div class="proker-item__top">
                         <span class="proker-num">04</span
-                        ><span class="proker-item__name">Tahsin Camp</span>
+                        ><span class="proker-item__name"
+                          >Diklat & Pembinaan Pengajar</span
+                        >
                       </div>
                       <p class="proker-item__desc">
-                        Kegiatan intensif pembelajaran tajwid dan makhraj huruf
-                        secara mendalam dalam format camp.
+                        Kegiatan pelatihan dan evaluasi rutin bagi para pengajar
+                        untuk menjaga kualitas pembelajaran Al-Qur’an yang
+                        profesional dan terarah.
                       </p>
                     </div>
                   </li>
@@ -625,11 +701,29 @@
                     <div class="proker-item">
                       <div class="proker-item__top">
                         <span class="proker-num">05</span
-                        ><span class="proker-item__name">MABIT</span>
+                        ><span class="proker-item__name"
+                          >Posttest Evaluasi</span
+                        >
                       </div>
                       <p class="proker-item__desc">
-                        Malam Bina Iman dan Taqwa — sarana mempererat ukhuwah
-                        dan memperdalam spiritualitas anggota.
+                        Tes lanjutan untuk mengukur perkembangan peserta setelah
+                        mengikuti pembinaan.
+                      </p>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="proker-item">
+                      <div class="proker-item__top">
+                        <span class="proker-num">06</span
+                        ><span class="proker-item__name"
+                          >Penutupan & Wisuda</span
+                        >
+                      </div>
+                      <p class="proker-item__desc">
+                        Kegiatan apresiasi bagi peserta BBQ dan BTQ yang telah
+                        menyelesaikan proses pembinaan dan mencapai target
+                        pembelajaran maupun hafalan.
                       </p>
                     </div>
                   </li>
@@ -639,7 +733,11 @@
             <!-- DPPO -->
             <div
               class="org-dept-card org-dept-card--clickable"
-              onclick="toggleProker(this)"
+              data-action="toggle-proker"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-controls="proker-dppo"
             >
               <div class="org-dept-card__header org-dept-card__header--dppo">
                 <span class="org-dept-card__abbr">DPPO</span>
@@ -654,9 +752,11 @@
                 </p>
                 <div class="org-dept-card__photo-wrap">
                   <img
-                    src="img/pengurus/Omar.jpg"
+                    src="assets/img/pengurus/Omar.jpg"
                     alt="M. Omar Athilla Zimran"
                     class="org-card__photo"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div class="org-dept-card__name-badge">
                     M. Omar Athilla Zimran
@@ -667,7 +767,7 @@
                   untuk lihat proker
                 </div>
               </div>
-              <div class="org-dept-card__proker">
+              <div class="org-dept-card__proker" id="proker-dppo">
                 <p class="org-dept-card__proker-title">Program Kerja DPPO</p>
                 <ul class="org-dept-card__proker-list">
                   <li>
@@ -768,7 +868,11 @@
             <!-- DEPIKOM -->
             <div
               class="org-dept-card org-dept-card--clickable"
-              onclick="toggleProker(this)"
+              data-action="toggle-proker"
+              tabindex="0"
+              role="button"
+              aria-expanded="false"
+              aria-controls="proker-depikom"
             >
               <div class="org-dept-card__header org-dept-card__header--depikom">
                 <span class="org-dept-card__abbr">DEPIKOM</span>
@@ -783,9 +887,11 @@
                 </p>
                 <div class="org-dept-card__photo-wrap">
                   <img
-                    src="img/pengurus/Fathi.jpg"
+                    src="assets/img/pengurus/Fathi.jpg"
                     alt="Muhammad Fathi Dhiaulhaq"
                     class="org-card__photo"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div class="org-dept-card__name-badge">
                     M. Fathi Dhiaulhaq
@@ -796,7 +902,7 @@
                   untuk lihat proker
                 </div>
               </div>
-              <div class="org-dept-card__proker">
+              <div class="org-dept-card__proker" id="proker-depikom">
                 <p class="org-dept-card__proker-title">Program Kerja DEPIKOM</p>
                 <ul class="org-dept-card__proker-list">
                   <li>
@@ -882,19 +988,26 @@
               <p class="section-label" data-i18n="programs.label">
                 Program Unggulan
               </p>
-              <h3 class="section-title" data-i18n="programs.title">
+              <h2 class="section-title" data-i18n="programs.title">
                 Tumbuh Bersama dalam Iman
-              </h3>
+              </h2>
             </div>
           </div>
           <div class="programs__grid">
             <div class="program-card">
               <div class="program-card__img-wrap">
-                <img src="img/posttest.jpeg" alt="Post-Test dan Pre-Test" />
+                <img
+                  src="assets/img/posttest.jpeg"
+                  alt="Post-Test dan Pre-Test"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="program-card__body">
                 <div class="program-card__num">01</div>
-                <h4 class="program-card__title">Post-Test dan Pre-Test</h4>
+                <h4 class="program-card__title">
+                  Pretest & Posttest Al-Qur’an
+                </h4>
                 <p class="program-card__desc" data-i18n="prog.posttest">
                   Kegiatan Test baca Al-Qur'an untuk mengetahui tingkat bacaan
                   Al-Qur'an, lalu mahasiswa akan di test kembali.
@@ -903,11 +1016,18 @@
             </div>
             <div class="program-card">
               <div class="program-card__img-wrap">
-                <img src="img/gopmq.jpg" alt="Go PMQ" />
+                <img
+                  src="assets/img/gopmq.jpg"
+                  alt="Go PMQ"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="program-card__body">
                 <div class="program-card__num">02</div>
-                <h4 class="program-card__title">Go PMQ</h4>
+                <h4 class="program-card__title">
+                  GO-PMQ (Program Kaderisasi Qur’ani)
+                </h4>
                 <p class="program-card__desc" data-i18n="prog.gopmq">
                   Rangkaian Kaderisasi untuk mempersiapkan CaGenQ menjadi GenQ
                   yang siap berdinamika di kepengurusan atau seminimalnya untuk
@@ -917,7 +1037,12 @@
             </div>
             <div class="program-card">
               <div class="program-card__img-wrap">
-                <img src="img/stuband.jpeg" alt="Studi Banding" />
+                <img
+                  src="assets/img/stuband.jpeg"
+                  alt="Studi Banding"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="program-card__body">
                 <div class="program-card__num">03</div>
@@ -931,7 +1056,12 @@
             </div>
             <div class="program-card">
               <div class="program-card__img-wrap">
-                <img src="img/mediacentre.jpeg" alt="Media centre" />
+                <img
+                  src="assets/img/mediacentre.jpeg"
+                  alt="Media centre"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="program-card__body">
                 <div class="program-card__num">04</div>
@@ -953,9 +1083,9 @@
             <p class="section-label" data-i18n="services.label">
               Layanan & Fasilitas
             </p>
-            <h3 class="section-title" data-i18n="services.title">
+            <h2 class="section-title" data-i18n="services.title">
               Fasilitas yang Ada
-            </h3>
+            </h2>
           </div>
           <div class="services__grid">
             <div class="service-card service-card--reverse">
@@ -963,6 +1093,8 @@
                 class="service-card__img"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuApkiNWnka2JC4bOXyw_BMoaSBzD3ytjJjnL9QJgFLJSqI2Jmsmn4I2PCzYyaLHG65nSylxOp8Rolj7ewO-eOp3gzDmVZiVYbgcLP1QVBYVbu3CWlqoZBG6TbpBB6T7jLx5cJkvD6f0lLX9IkVADd3S5Q3HAMUZv6SLkj2HpfHe7aGxFcK44tYNHQoUKPQwXZ0Smf7C-C_hqpF8_ScUc3Fk_gBk9BLXS3e0PJcX7ynF8s_g3pTfbRjao7iHtTQ0RJtic0JAp_6e__k"
                 alt="Equipment storage"
+                loading="lazy"
+                decoding="async"
               />
               <div class="service-card__body">
                 <div>
@@ -978,11 +1110,40 @@
                     jurusan.
                   </p>
                 </div>
-                <button
-                 class="service-card__btn" onclick="openInventarisForm()">
-                  <span data-i18n="service.borrow.btn">Ajukan Peminjaman</span>
-                  <span class="material-symbols-outlined">open_in_new</span>
-                </butto>
+                <details class="service-card__details">
+                  <summary class="service-card__btn service-card__toggle">
+                    <span data-i18n="service.borrow.btn"
+                      >Ajukan Peminjaman</span
+                    >
+                    <span class="material-symbols-outlined">expand_more</span>
+                  </summary>
+                  <div class="service-card__contact-panel">
+                    <p class="service-card__contact-note">
+                      Pilih kontak untuk bertanya mengenai peminjaman
+                      inventaris.
+                    </p>
+                    <div class="service-card__contact-grid">
+                      <a
+                        href="https://wa.me/62881321502943?text=Assalamualaikum Wr.Wb%20kak%20Callysta,%20saya%20ingin%20bertanya%20mengenai%20peminjaman%20inventaris%20BAQI%20UPI."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="service-card__contact-pill"
+                        aria-label="Chat with Callysta"
+                      >
+                        Callysta (Akhwat)
+                      </a>
+                      <a
+                        href="https://wa.me/6285183213012?text=Assalamualaikum Wr.Wb%20kak%20Alan,%20saya%20ingin%20bertanya%20mengenai%20peminjaman%20inventaris%20BAQI%20UPI."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="service-card__contact-pill"
+                        aria-label="Chat with Alan"
+                      >
+                        Alan (Ikhwan)
+                      </a>
+                    </div>
+                  </div>
+                </details>
               </div>
             </div>
           </div>
@@ -994,37 +1155,66 @@
         <div class="container">
           <div class="gallery__header">
             <p class="section-label" data-i18n="gallery.label">Galeri</p>
-            <h3 class="section-title" data-i18n="gallery.title">
+            <h2 class="section-title" data-i18n="gallery.title">
               Momen Kebersamaan
-            </h3>
+            </h2>
           </div>
           <div class="gallery__grid">
             <div class="gallery-item gallery-item--square">
               <img
-                src="img/gallery/gallery_1.jpeg"
+                src="assets/img/gallery/gallery_1.jpeg"
                 alt="Students group study"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="gallery-item gallery-item--tall">
               <img
-                src="img/gallery/gallery_2.jpeg"
+                src="assets/img/gallery/gallery_2.jpeg"
                 alt="Group discussion mosque"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="gallery-item gallery-item--square">
-              <img src="img/gallery/gallery_3.jpeg" alt="Seminar hall" />
+              <img
+                src="assets/img/gallery/gallery_3.jpeg"
+                alt="Seminar hall"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="gallery-item gallery-item--square">
-              <img src="img/gallery/gallery_4.jpeg" alt="Student certificate" />
+              <img
+                src="assets/img/gallery/gallery_4.jpeg"
+                alt="Student certificate"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="gallery-item gallery-item--square">
-              <img src="img/gallery/gallery_5.jpeg" alt="Outdoor event" />
+              <img
+                src="assets/img/gallery/gallery_5.jpeg"
+                alt="Outdoor event"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="gallery-item gallery-item--square">
-              <img src="img/gallery/gallery_6.jpeg" alt="Audience mosque" />
+              <img
+                src="assets/img/gallery/gallery_6.jpeg"
+                alt="Audience mosque"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="gallery-item gallery-item--square">
-              <img src="img/gallery/gallery_7.jpeg" alt="Public speaker" />
+              <img
+                src="assets/img/gallery/gallery_7.jpeg"
+                alt="Public speaker"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
@@ -1072,9 +1262,9 @@
                 "
                 >وَتَعَاوَنُوا عَلَى الْبِرِّ</span
               >
-              <h3 class="register-cta__title" data-i18n="cta.title">
+              <h2 class="register-cta__title" data-i18n="cta.title">
                 Bergabunglah Bersama Kami
-              </h3>
+              </h2>
               <p class="register-cta__desc" data-i18n="cta.desc">
                 Jadilah bagian dari keluarga BAQI UPI. Pendaftaran anggota baru
                 akan segera dibuka.
@@ -1098,9 +1288,9 @@
             <div class="contact__grid">
               <div class="contact__info">
                 <p class="section-label" data-i18n="contact.label">Kontak</p>
-                <h3 class="contact__info-title" data-i18n="contact.title">
+                <h2 class="contact__info-title" data-i18n="contact.title">
                   Hubungi Kami
-                </h3>
+                </h2>
                 <div class="contact__rows">
                   <div class="contact__row">
                     <div class="contact__row-icon">
@@ -1177,7 +1367,8 @@
                   </a>
                   <button
                     class="social-btn social-btn--whatsapp"
-                    onclick="openWhatsApp()"
+                    type="button"
+                    data-action="open-whatsapp"
                     aria-label="WhatsApp"
                   >
                     <svg
@@ -1194,20 +1385,22 @@
                 </div>
               </div>
               <div class="contact__map">
-                <img src="img/upi.jpeg" alt="UPI Campus map" />
+                <img
+                  src="assets/img/upi.jpeg"
+                  alt="UPI Campus map"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div class="contact__map-overlay">
-                  <button
+                  <a
+                    href="https://maps.app.goo.gl/Q4nDYMJFYmk3zkkf6?g_st=aw"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     class="contact__map-btn"
-                    onclick="
-                      window.open(
-                        'https://maps.app.goo.gl/Q4nDYMJFYmk3zkkf6?g_st=aw',
-                        '_blank',
-                      )
-                    "
                   >
                     <span data-i18n="contact.maps">Buka di Maps</span>
                     <span class="material-symbols-outlined">near_me</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -1224,7 +1417,13 @@
         <div class="footer__inner">
           <div class="footer__logo">
             <div class="footer__logo-icon">
-              <img src="img/logo.png" alt="BAQI" class="footer__logo-img" />
+              <img
+                src="assets/img/logo.png"
+                alt="BAQI"
+                class="footer__logo-img"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <h2 class="footer__logo-name">UKM BAQI UPI</h2>
           </div>
@@ -1275,6 +1474,6 @@
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>
